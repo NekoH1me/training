@@ -1,5 +1,5 @@
 # Konnichiwa!
-My name is Daria and I'm a student of a big and wonderful company `"EPAM"`.
+My name is Daria and I'm a student of a big and wonderful company `"EPAM Systems"`.
 >Here you can see my homework.
 
 **Have fun!**
