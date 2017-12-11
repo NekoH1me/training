@@ -46,7 +46,7 @@
 				<form>
 				<label><b>Вход:</b></label>
                 <p><input type="email" name="email" placeholder="email" required></p>
-                <p><input type="password" name="password" placeholder="password" pattern="[A-Za-zА-Яа-яЁё].[0-9].{8,}" required></p>
+                <p><input type="password" name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></p>
 				<p>В поле пароля можно вводить</br>
 				   только цифры и буквы и никакие</br>
 				   другие символы.</br>
