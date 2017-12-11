@@ -22,7 +22,7 @@ body {
 	margin-top: 10px;
 	text-align: center;
 }
-#nav {
+nav {
     background-color: #5a3f69;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
@@ -57,13 +57,13 @@ body {
     text-decoration: none;
     border-right: 1px solid #ccc;
 }
-#nav li:last-child a {
+nav li:last-child a {
     border-right: none; 
 }
-#nav a:hover {
+nav a:hover {
     font-weight: bold;
 }
-#nav:after {
+nav:after {
     content: " ";
     display: table;
     clear: both;
