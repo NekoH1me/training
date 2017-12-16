@@ -2,84 +2,84 @@
 box-sizing: border-box; 
 } 
 body{ 
-font-family: Arial; 
-background-image: url(http://i1.beon.ru/26/19/1541926/90/88669590/2.jpeg); 
-margin: 0px; 
+    font-family: Arial; 
+    background-image: url(http://i1.beon.ru/26/19/1541926/90/88669590/2.jpeg); 
+    margin: 0px; 
 } 
 .f1{ 
-text-align: center; 
-position: fixed; 
-top: 30%; 
-left: 40%; 
-width: 250px; 
-height: 178px; 
-padding: 10px; 
-border: 1px solid white; 
-background-image: url(http://i53.beon.ru/25/55/1715525/24/105003724/d2dbd5.png); 
+    text-align: center; 
+    position: fixed; 
+    top: 30%; 
+    left: 40%; 
+    width: 250px; 
+    height: 178px; 
+    padding: 10px; 
+    border: 1px solid white; 
+    background-image: url(http://i53.beon.ru/25/55/1715525/24/105003724/d2dbd5.png); 
 } 
 form a{ 
-position: fixed; 
+    position: fixed; 
 } 
 .edges{ 
-border-radius: 10px; 
-outline: none; 
+    border-radius: 10px; 
+    outline: none; 
 } 
 header{ 
-background-color: white; 
-padding: 5px; 
+    background-color: white; 
+    padding: 5px; 
 } 
 .f2{ 
-position: absolute;  
-top: 4%; 
-left: 76%; 
+    position: absolute;  
+    top: 4%; 
+    left: 76%; 
 } 
 .f3{ 
-position: absolute; 
-top: 3.7%; 
-right: 4%; 
+    position: absolute; 
+    top: 3.7%; 
+    right: 4%; 
 } 
 .f4{ 
-position: absolute; 
-top: 3.8%; 
-right: 1.6%; 
+    position: absolute; 
+    top: 3.8%; 
+    right: 1.6%; 
 } 
 .col1{ 
-width: 50%; 
+    width: 50%; 
 } 
 .col2{ 
-width: 1000px; 
-height: 600px; 
-background-color: white; 
+    width: 1000px; 
+    height: 600px; 
+    background-color: white; 
 } 
 .col3{ 
-width: 50%; 
+    width: 50%; 
 } 
 .col4{ 
-width: 30%; 
+    width: 30%; 
 }
 .layout{ 
-width: 100%; 
-table-layout: fixed; 
-padding: 45px;
+    width: 100%; 
+    table-layout: fixed; 
+    padding: 45px;
 }
 .layout1{ 
-width: 50%; 
-height: 30%;
-table-layout: fixed; 
-padding: 45px;
-margin-left: 200px;
+    width: 50%; 
+    height: 30%;
+    table-layout: fixed; 
+    padding: 45px;
+    margin-left: 200px;
 } 
 footer{ 
-position: fixed; 
-bottom: 0; 
-width: 100%; 
-background-color: white; 
-padding: 2px; 
-text-align: center; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    background-color: white; 
+    padding: 2px; 
+    text-align: center; 
 } 
 div{ 
-display: inline-flex; 
-justify-content: center; 
+    display: inline-flex; 
+    justify-content: center; 
 }
 figcaption{
 	text-align: center;
