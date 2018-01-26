@@ -5,7 +5,7 @@
       return date.toLocaleString("ja-JP-u-ca-japanese", {month: 'long'}) 
       + '(' + date.toLocaleString("en", {month: 'long'}) + ') '
       + date.toLocaleString("ja-JP-u-ca-japanese", {weekday: 'long'})
-      + '(' + date.toLocaleString("en", {weekday: 'long'}) + ')'
+      + '(' + date.toLocaleString("en", {weekday: 'long'}) + ')';
     }
   }
 
