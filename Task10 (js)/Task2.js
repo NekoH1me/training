@@ -30,7 +30,7 @@ console.log('Task2: Promisification');
     var i = 0;
 
     for (result = 0; result < 7; result++){  
-      random()
+      Promise.all([random()])
       .then(
         function(result) { i++; console.log(i + ' result = ', result); } 
       )

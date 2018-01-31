@@ -4,7 +4,7 @@ function AlertNumbers(value1, value2){
   return new Promise(function (resolve, reject) {
 
     if (typeof value1 === 'number' && typeof value2 === 'number') {
-    return setTimeout(function(){ resolve(CompareNumbers(value1, value2)) }, 1000);
+     setTimeout(function(){ resolve(CompareNumbers(value1, value2)) }, 1000);
       } else {
            setTimeout(function(){ reject('Error')}, 1000);
       }

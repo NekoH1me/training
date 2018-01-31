@@ -2,13 +2,15 @@ alert('Task5: setInterval');
 
 //1
 
-var timer1 = setInterval(function() {
+var count = 0;
+var timer = setInterval(function() {
   alert('犬が大好き');
+  count++;
+  if (count >= 5) {
+    clearInterval(timer);
+  }
+  alert(count)
 }, 2000);
-
-setTimeout(function() {
-  clearInterval(timer1);
-}, 10000);
 
 //2
 
