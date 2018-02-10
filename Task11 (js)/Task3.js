@@ -48,12 +48,12 @@ console.log('Task3');
         return Car.count;
     };
     this.openDoor = function() {
-        if (this.doorsCount > 0) {
-          this.doorsCount -= 1;
-          console.log ("Number of opened doors is " + (4 - this.doorsCount));
-        } else {
-          console.log ("Close the door, please");
-        }    
+        if (this.closeDoorsCount > 0) {
+            this.closeDoorsCount -= 1;
+            console.log ("Number of opened doors is " + (4 - this.closeDoorsCount));
+          } else {
+            console.log ("Close the door, please");
+          }    
     };
     this.closeDoor = function() {
         if (this.closeDoorsCount < this.doorsCount) {
