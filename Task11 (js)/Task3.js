@@ -57,7 +57,7 @@ console.log('Task3');
     };
     this.closeDoor = function() {
         if (this.closeDoorsCount < this.doorsCount) {
-            this.doorsCount += 1;
+            this.closeDoorsCount += 1;
             console.log ("Number of closed doors is " + this.closeDoorsCount);
           } else {
             console.log ("Open the door, please");
