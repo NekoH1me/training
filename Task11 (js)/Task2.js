@@ -44,6 +44,7 @@ console.log('Task2');
     Vehical.apply(this, arguments);
     this.wheelsCount = 4;
     this.doorsCount = 4;
+    this.closeDoorsCount = 2;
     Car.count ++;
   }
 
@@ -65,9 +66,9 @@ console.log('Task2');
     }    
   };
   Car.prototype.closeDoor = function() {
-    if (this.doorsCount < 4) {
+    if (this.closeDoorsCount < this.doorsCount) {
       this.doorsCount += 1;
-      console.log ("Number of closed doors is " + this.doorsCount);
+      console.log ("Number of closed doors is " + this.closeDoorsCount);
     } else {
       console.log ("Open the door, please");
     }    

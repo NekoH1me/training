@@ -41,6 +41,7 @@ console.log('Task3');
     Vehical.apply(this, arguments);
     this.wheelsCount = 4;
     this.doorsCount = 4;
+    this.closeDoorsCount = 2;
     Car.count ++;
 
     this.counter = function() {
@@ -55,12 +56,12 @@ console.log('Task3');
         }    
     };
     this.closeDoor = function() {
-        if (this.doorsCount < 4) {
-          this.doorsCount += 1;
-          console.log ("Number of closed doors is " + this.doorsCount);
-        } else {
-          console.log ("Open the door, please");
-        }    
+        if (this.closeDoorsCount < this.doorsCount) {
+            this.doorsCount += 1;
+            console.log ("Number of closed doors is " + this.closeDoorsCount);
+          } else {
+            console.log ("Open the door, please");
+          }    
     };
     this.toString = function() {
         return ("Car speed is " + this.speed + "\n Car wheelsCount is " + this.wheelsCount + "\n Car doorsCount is " + this.doorsCount);
