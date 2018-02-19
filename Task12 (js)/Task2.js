@@ -44,3 +44,5 @@ function Wallet(name) {
     wallet2.addObs(wallet1); 
     wallet1.send(); 
     wallet2.send();
+
+    module.exports = Wallet;

@@ -1,6 +1,6 @@
 var Ball = require('.../Task1/Ball.js').Ball;
-var SomeBallDecorator = require('.../Task1/SomeBallColor.js').SomeBallDecora;
-var LineBallDecorator = require('.../Task1/SomeBallLine.js').LineBallDecorator;
+var SomeBallColor = require('.../Task1/SomeBallColor.js').SomeBallColor;
+var SomeBallLine = require('.../Task1/SomeBallLine.js').SomeBallLine;
 
 console.log('Task1');
 console.log(new Ball().getDescription ()); //ball
