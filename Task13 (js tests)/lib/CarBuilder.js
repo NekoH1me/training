@@ -23,7 +23,7 @@ function CarSalon(seats,tripComputer,GPS,tyreSize) {
 
 
 function CarBuilder() {
-  var CarSet = new CarSalon();
+  this.CarSet = new CarSalon();
   this.reset;
 }
 
