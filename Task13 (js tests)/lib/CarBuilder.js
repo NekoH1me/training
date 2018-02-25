@@ -1,54 +1,67 @@
-function CarBuilder() {
+function CarSalon(seats,tripComputer,GPS,tyreSize) {
+  this.seats = seats;
+  this.tripComputer = tripComputer;
+  this.GPS = GPS;
+  this.tyreSize = tyreSize;
+}
 
+  CarSalon.prototype.getSeats = function() { 
+  return this.seats; 
+  } 
+  
+  CarSalon.prototype.getTripComputer = function() { 
+  return this.tripComputer; 
+  } 
+  
+  CarSalon.prototype.getGPS = function() { 
+  return this.GPS; 
+  } 
+  
+  CarSalon.prototype.getTyreSize = function() { 
+  return this.tyreSize; 
+  } 
+
+
+function CarBuilder() {
+  var CarSet = new CarSalon();
+  this.reset;
 }
 
 CarBuilder.prototype.reset = function() {
-  this.seats = 4;
-  this.tripComputer = false;
-  this.GPS = false;
-  this.tyreSize = 'medium';
+  this.CarSet.seats = 4;
+  this.CarSet.tripComputer = false;
+  this.CarSet.GPS = false;
+  this.CarSet.tyreSize = 'medium';
   return this;
 }
 
 CarBuilder.prototype.setSeats = function(seats) {
-  this.seats = seats;
+  this.CarSet.seats = seats;
   return this;
 }
 
 CarBuilder.prototype.setTripComputer = function(tripComputer) {
-  this.tripComputer = tripComputer;
+  this.CarSet.tripComputer = tripComputer;
   return this;
 }
 
 CarBuilder.prototype.setGPS = function(GPS) {
-  this.GPS = GPS;
+  this.CarSet.GPS = GPS;
   return this;
 }
 
 CarBuilder.prototype.setTyreSize = function(tyreSize) {
-  this.tyreSize = tyreSize;
+  this.CarSet.tyreSize = tyreSize;
   return this;
 }
 
 CarBuilder.prototype.getResult = function() {
-  var seats = this.seats, 
-      tripComputer = this.tripComputer, 
-      GPS = this.GPS, 
-      tyreSize = this.tyreSize;
-  return {
-    getSeats: function() {
-      return seats;
-    },
-    getTripComputer: function() {
-      return tripComputer;
-    },
-    getGps: function() {
-      return GPS;
-    },
-    getTyreSize: function() {
-      return tyreSize;
-    }
-  };
+  return new CarSalon(
+   this.CarSet.seats,
+   this.CarSet.tripComputer,
+   this.CarSet.GPS,
+   this.CarSet.tyreSize
+  );
 };
 
 module.exports = CarBuilder;
