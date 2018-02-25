@@ -1,7 +1,7 @@
-function CarSalon(seats,tripComputer,GPS,tyreSize) {
+function CarSalon(seats,tripComputer,Gps,tyreSize) {
   this.seats = seats;
   this.tripComputer = tripComputer;
-  this.GPS = GPS;
+  this.Gps = Gps;
   this.tyreSize = tyreSize;
 }
 
@@ -14,7 +14,7 @@ function CarSalon(seats,tripComputer,GPS,tyreSize) {
   } 
   
   CarSalon.prototype.getGPS = function() { 
-  return this.GPS; 
+  return this.Gps; 
   } 
   
   CarSalon.prototype.getTyreSize = function() { 
@@ -30,7 +30,7 @@ function CarBuilder() {
 CarBuilder.prototype.reset = function() {
   this.CarSet.seats = 4;
   this.CarSet.tripComputer = false;
-  this.CarSet.GPS = false;
+  this.CarSet.Gps = false;
   this.CarSet.tyreSize = 'medium';
   return this;
 }
@@ -45,8 +45,8 @@ CarBuilder.prototype.setTripComputer = function(tripComputer) {
   return this;
 }
 
-CarBuilder.prototype.setGPS = function(GPS) {
-  this.CarSet.GPS = GPS;
+CarBuilder.prototype.setGps = function(Gps) {
+  this.CarSet.Gps = Gps;
   return this;
 }
 
@@ -59,7 +59,7 @@ CarBuilder.prototype.getResult = function() {
   return new CarSalon(
    this.CarSet.seats,
    this.CarSet.tripComputer,
-   this.CarSet.GPS,
+   this.CarSet.Gps,
    this.CarSet.tyreSize
   );
 };
