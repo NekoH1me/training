@@ -28,6 +28,7 @@ class CarBuilder {
     this.CarSet = new CarSalon();
     this.reset;
   }
+  
   reset() {
     this.CarSet.seats = 4;
     this.CarSet.tripComputer = false;
