@@ -22,7 +22,7 @@ console.log('Task2 OOP');
 
   class Bike extends Vehical{
     constructor(){
-      super(speed);
+      super();
       this.wheelsCount = 2;
     }
       move() {
@@ -41,7 +41,7 @@ console.log('Task2 OOP');
 
   class Car extends Vehical {
     constructor(){
-      super(speed);
+      super();
       this.wheelsCount = 4;
       this.doorsCount = 4;
       this.closeDoorsCount = 2;
@@ -78,7 +78,7 @@ console.log('Task2 OOP');
 
   class MonsterTruck extends Car {
     constructor(){
-      super(speed, wheelsCount, doorsCount, closeDoorsCount);
+      super(...args);
       this.wheelsSize = 35;
     }
     openDoor() {
