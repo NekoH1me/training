@@ -78,7 +78,7 @@ console.log('Task2 OOP');
 
   class MonsterTruck extends Car {
     constructor(){
-      super(...args);
+      super();
       this.wheelsSize = 35;
     }
     openDoor() {
