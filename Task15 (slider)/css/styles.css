@@ -1,0 +1,90 @@
+#slides{
+	position: relative;
+	height: 500px;
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+#next{
+  position: relative;
+  margin-left: 520px;
+  bottom: 77px;
+}
+
+#previous{
+  position: relative;
+  right: 100px;
+}
+.thumbnails{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-top: 10%; 
+  margin-left: 1%;
+  box-sizing: border-box;
+}
+.thumbnails.showing {
+  border: 1px solid #333;
+  opacity: 0.8;
+}
+#thumbnail{
+  margin-left: 2%;
+}
+
+.slide{
+  cursor: pointer;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  background-size: contain;
+	transition: opacity 1s;
+}
+
+.slide.showing{
+	opacity: 1;
+	z-index: 11;
+}
+
+.controls{
+	display: inline-block;
+  outline: none;
+}
+
+.controls{
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 20px 0px;
+  font-size: 20px;
+  border: 2px solid #fff;
+  margin: 10px 0px 0px 10px;
+  width: 70px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.controls:hover,
+.controls:active{
+  background: #eee;
+  color: #333;
+}
+
+.container{
+  position: relative;
+  top: 20px;
+  width: 500px;  
+  left: 400px;
+}
+
+.buttons{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  font-size: 0px;
+}
