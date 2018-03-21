@@ -1,77 +1,55 @@
 window.onload = function(){ 
-
+    var city;
     var london = document.getElementById("london");
     london.onclick = function () {
-    updatelondon();
+    city = "London";
+    updatecity();
     }
     var ryazan = document.getElementById("ryazan");
     ryazan.onclick = function () {
-    updateryazan();
+    city = "Ryazan";
+    updatecity();
     }
     var ny = document.getElementById("ny");
     ny.onclick = function () {
-    updateny();
+    city = "New York"; 
+    updatecity();
     }
     var moscow = document.getElementById("moscow");
     moscow.onclick = function () {
-    updatemoscow();
+    city = "Moscow";
+    updatecity();
     }
     var vladivostok= document.getElementById("vladivostok");
     vladivostok.onclick = function () {
-    updatevladivostok();
+    city = "vladivostok";
+    updatecity();
     }
     var dubai = document.getElementById("dubai");
     dubai.onclick = function () {
-    updatedubai();
+    city = "dubai";
+    updatecity();
     }
     var tokyo = document.getElementById("tokyo");
+    city = "tokyo";
     tokyo.onclick = function () {
-    updatetokyo();
+    updatecity();
     }
 
  var xhr = new XMLHttpRequest(); 
 
- function updatelondon() {
-    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?q=London&appid=e33262cd6a432b1c3dc5181a736dbc41', false);
+ function updatecity() {
+    var rootUrl;
+     if (city === "dubai" || city === "tokyo" || city === "vladivostok") {
+     rootUrl = 'http://localhost:3000/';
+      } else {
+     rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q="
+  }
+    var url = rootUrl + encodeURIComponent(city);
+    xhr.open('GET', url , false);
     xhr.send();
     update();  
  }
-
- function updateryazan() {
-    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?q=Ryazan&appid=e33262cd6a432b1c3dc5181a736dbc41', false);
-    xhr.send();
-    update();  
- }
-
- function updateny() {
-    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?id=5128638&appid=e33262cd6a432b1c3dc5181a736dbc41', false);
-    xhr.send();
-    update();  
- }
-
- function updatemoscow() {
-    xhr.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?q=Moscow&appid=e33262cd6a432b1c3dc5181a736dbc41', false);
-    xhr.send();
-    update();   
- }
-
- function updatevladivostok() {
-  xhr.open('GET', 'http://localhost:3000/vladivostok', false);
-  xhr.send();
-  update();   
-}
-
-function updatedubai() {
-   xhr.open('GET', 'http://localhost:3000/dubai', false);
-   xhr.send();
-   update();   
-}
-
-function updatetokyo() {
-   xhr.open('GET', 'http://localhost:3000/tokyo', false);
-   xhr.send();
-   update();   
-}
 
  function update() {
       var h1 = document.getElementById("h1");
