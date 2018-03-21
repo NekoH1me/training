@@ -12,16 +12,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/dubai', function (req, res) {
-  res.json(weather_dubai);
-});
-
-app.get('/tokyo', function (req, res) {
-    res.json(weather_tokyo);
-});
-
-app.get('/vladivostok', function (req, res) {
-    res.json(weather_vladivostok);
+app.get('/:town', function(req, res) {
+  switch(req.params.town) {
+    case "dubai": return res.json(weather_dubai); break;
+    case "vladivostok": return res.json(weather_vladivostok); break;
+    case "tokyo": return res.json(weather_tokyo); break;
+  }
 });
 
 app.listen(3000, function () {
