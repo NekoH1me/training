@@ -73,13 +73,13 @@ window.onload = function(){
       var e = [];
       
       var date = new Date();
+      var day = date.toLocaleString("en", {day: 'numeric'});
+      var hour = date.toLocaleString("ru", {hour: 'numeric'});
       
       pp.innerHTML = JSON.parse(xhr.responseText).list[0].weather[0].main;
       h1.innerHTML = JSON.parse(xhr.responseText).city.name;
       p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'})
-                                                                                                        + endOfday();
-      var day = date.toLocaleString("en", {day: 'numeric'});
-      var hour = date.toLocaleString("ru", {hour: 'numeric'});
+                                                                                                        + endOfday(day);
 
       function endOfday(day) {
         if((day == 2)||(day == 22)){
