@@ -73,7 +73,7 @@ window.onload = function(){
       var e = [];
       
       var date = new Date();
-      var day = date.toLocaleString("en", {day: 'numeric'});
+      var day = (date.toLocaleString("en", {day: 'numeric'}))%10;
       var hour = date.toLocaleString("ru", {hour: 'numeric'});
       
       pp.innerHTML = JSON.parse(xhr.responseText).list[0].weather[0].main;
@@ -81,15 +81,15 @@ window.onload = function(){
       p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'})
                                                                                                         + endOfday(day);
 
-      function endOfday(day) {
-        if((day == 2)||(day == 22)){
+     function endOfday(day) {
+        if(day == 2){
          return "nd";
-       } else if((day == 1)||(day == 21)||(day == 31)){
+       } else if(day == 1){
           return "st"; 
-        } else if((day == 3)||(day == 23)){
+        } else if(day == 3){
             return "rd";
          } else return "th";
-      }                                                                                             
+      }                                                                                           
                                                                                                                                                                                       
       today_temp.innerHTML = Math.round(JSON.parse(xhr.responseText).list[0].main.temp) + "°K";
 
