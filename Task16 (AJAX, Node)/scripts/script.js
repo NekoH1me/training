@@ -35,8 +35,6 @@ window.onload = function(){
      updatecity(city);
     }
 
- var xhr = new XMLHttpRequest(); 
-
  function updatecity(city) {
     var rootUrl;
      if (city === "dubai" || city === "tokyo" || city === "vladivostok") {
@@ -46,12 +44,20 @@ window.onload = function(){
   }
     var url = rootUrl + encodeURIComponent(city);
 
-    xhr.open('GET', url, false);
-    xhr.send();
-    update(); 
+    fetch(url)
+    .then(async function(response) {
+      var myjson = await response.json();
+      return myjson;
+     })
+    .then(update)
+    .catch(error);  
  }
 
- function update() {
+ function error(error) {
+  console.log(error); 
+}
+
+ function update(myjson) {
       var h1 = document.getElementById("h1");
       var p = document.getElementById("p");
       var pp = document.getElementById("pp");
@@ -77,8 +83,8 @@ window.onload = function(){
       var day = (date.toLocaleString("en", {day: 'numeric'}))%10;
       var hour = date.toLocaleString("ru", {hour: 'numeric'});
       
-      pp.innerHTML = JSON.parse(xhr.responseText).list[0].weather[0].main;
-      h1.innerHTML = JSON.parse(xhr.responseText).city.name;
+      pp.innerHTML = myjson.list[0].weather[0].main;
+      h1.innerHTML = myjson.city.name;
       p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'})
                                                                                                         + endOfday(day);
 
@@ -93,14 +99,14 @@ window.onload = function(){
          } else return "th";
       }                                                                                             
                                                                                                                                                                                       
-      today_temp.innerHTML = Math.round(JSON.parse(xhr.responseText).list[0].main.temp) + "°K";
+      today_temp.innerHTML = Math.round(myjson.list[0].main.temp) + "°K";
 
-      precipitation.innerHTML = "Precipitation: " + JSON.parse(xhr.responseText).list[0].clouds.all + " %";
-      humidity.innerHTML = "Humidity: " + JSON.parse(xhr.responseText).list[0].main.humidity + " %";
-      pressure.innerHTML = "Pressure: " +  Math.round(JSON.parse(xhr.responseText).list[0].main.pressure) + " hPA";
-      wind.innerHTML = "Wind: " +  Math.round(JSON.parse(xhr.responseText).list[0].wind.speed) + " m/s";
+      precipitation.innerHTML = "Precipitation: " + myjson.list[0].clouds.all + " %";
+      humidity.innerHTML = "Humidity: " + myjson.list[0].main.humidity + " %";
+      pressure.innerHTML = "Pressure: " +  Math.round(myjson.list[0].main.pressure) + " hPA";
+      wind.innerHTML = "Wind: " +  Math.round(myjson.list[0].wind.speed) + " m/s";
 
-      var today_weather = JSON.parse(xhr.responseText).list[0].weather[0].id;
+      var today_weather = myjson.list[0].weather[0].id;
 
        if (today_weather == 800){
            if((hour == 21)||(hour <= 3)){
@@ -140,7 +146,7 @@ window.onload = function(){
         
         for (var i = 0; i <= 32; i+=8){ 
             for (var j = 0; j <= 4; j++){
-             weather_id[i] = JSON.parse(xhr.responseText).list[i].weather[0].id;
+             weather_id[i] = myjson.list[i].weather[0].id;
 
               if ((weather_id[i] == 800)&&(j*8 == i)){
                 img[j].innerHTML = "<img class='daily-row__icon' src='img/33.png'/>";
@@ -166,11 +172,11 @@ window.onload = function(){
         
         for (var k = 0; k <= 32; k+=8){         
             for (var l = 0; l <= 4; l++){
-              temp_max[k] = JSON.parse(xhr.responseText).list[k].main.temp_max;
-              temp_min[k] = JSON.parse(xhr.responseText).list[k].main.temp_min;
-              day_pressure[k] = JSON.parse(xhr.responseText).list[k].main.pressure;
+              temp_max[k] = myjson.list[k].main.temp_max;
+              temp_min[k] = myjson.list[k].main.temp_min;
+              day_pressure[k] = myjson.list[k].main.pressure;
               next_date[0].innerHTML = "Today";
-              weekaday[k] = new Date(JSON.parse(xhr.responseText).list[k].dt_txt);
+              weekaday[k] = new Date(myjson.list[k].dt_txt);
                 if (l*8 == k){
                     degree_high[l].innerHTML = Math.round(temp_max[k]) + "°";
                     degree_min[l].innerHTML = Math.round(temp_min[k]) + "°";
