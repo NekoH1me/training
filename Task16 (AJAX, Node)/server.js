@@ -8,15 +8,15 @@ var weather_vladivostok = require("./weather_vladivostok.json");
 var app = express();
 
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Origin', "*");
   next();
 });
 
 app.get('/:town', function(req, res) {
   switch(req.params.town) {
-    case "dubai": return res.json(weather_dubai); break;
-    case "vladivostok": return res.json(weather_vladivostok); break;
-    case "tokyo": return res.json(weather_tokyo); break;
+    case "dubai": return res.json(weather_dubai); 
+    case "vladivostok": return res.json(weather_vladivostok); 
+    case "tokyo": return res.json(weather_tokyo); 
   }
 });
 
