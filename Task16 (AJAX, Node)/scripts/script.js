@@ -1,4 +1,4 @@
-window.onload = function(){ 
+window.onload = function() { 
     var london = document.getElementById("london");
     london.onclick = function () {
      let city = "London";
