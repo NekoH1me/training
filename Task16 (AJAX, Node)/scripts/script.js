@@ -1,54 +1,54 @@
 window.onload = function(){ 
-    var city;
     var london = document.getElementById("london");
     london.onclick = function () {
-    city = "London";
-    updatecity();
+     let city = "London";
+     updatecity(city);
     }
     var ryazan = document.getElementById("ryazan");
     ryazan.onclick = function () {
-    city = "Ryazan";
-    updatecity();
+     let city = "Ryazan";
+     updatecity(city);
     }
     var ny = document.getElementById("ny");
     ny.onclick = function () {
-    city = "New York"; 
-    updatecity();
+     let city = "New York";
+     updatecity(city);
     }
     var moscow = document.getElementById("moscow");
     moscow.onclick = function () {
-    city = "Moscow";
-    updatecity();
+     let city = "Moscow";
+     updatecity(city);
     }
     var vladivostok= document.getElementById("vladivostok");
     vladivostok.onclick = function () {
-    city = "vladivostok";
-    updatecity();
+     let city = "vladivostok";
+     updatecity(city);
     }
     var dubai = document.getElementById("dubai");
     dubai.onclick = function () {
-    city = "dubai";
-    updatecity();
+     let city = "dubai";
+     updatecity(city);
     }
     var tokyo = document.getElementById("tokyo");
-    city = "tokyo";
     tokyo.onclick = function () {
-    updatecity();
+     let city = "tokyo";
+     updatecity(city);
     }
 
  var xhr = new XMLHttpRequest(); 
 
- function updatecity() {
+ function updatecity(city) {
     var rootUrl;
      if (city === "dubai" || city === "tokyo" || city === "vladivostok") {
      rootUrl = 'http://localhost:3000/';
       } else {
-     rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q="
+     rootUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=e33262cd6a432b1c3dc5181a736dbc41&q=";
   }
     var url = rootUrl + encodeURIComponent(city);
-    xhr.open('GET', url , false);
+
+    xhr.open('GET', url, false);
     xhr.send();
-    update();  
+    update(); 
  }
 
  function update() {
@@ -66,13 +66,14 @@ window.onload = function(){
       var daily_pressure = document.querySelectorAll(".daily-row__pollen");
       var wind = document.getElementById("wind");
       var next_date = document.querySelectorAll(".daily-row__day");
-      var a = [];
-      var b = [];
-      var c = [];
-      var d = [];
-      var e = [];
+      var temp_max = [];
+      var temp_min = [];
+      var weather_id = [];
+      var day_pressure = [];
+      var weekaday = [];
       
       var date = new Date();
+      
       var day = (date.toLocaleString("en", {day: 'numeric'}))%10;
       var hour = date.toLocaleString("ru", {hour: 'numeric'});
       
@@ -81,7 +82,8 @@ window.onload = function(){
       p.innerHTML = date.toLocaleString('en', {weekday: 'long'})+ ', ' + date.toLocaleString("en", {month: 'long', day: 'numeric'})
                                                                                                         + endOfday(day);
 
-     function endOfday(day) {
+
+      function endOfday(day) {
         if(day == 2){
          return "nd";
        } else if(day == 1){
@@ -89,7 +91,7 @@ window.onload = function(){
         } else if(day == 3){
             return "rd";
          } else return "th";
-      }                                                                                           
+      }                                                                                             
                                                                                                                                                                                       
       today_temp.innerHTML = Math.round(JSON.parse(xhr.responseText).list[0].main.temp) + "°K";
 
@@ -116,7 +118,7 @@ window.onload = function(){
                     today_img.innerHTML = "<img class='today-widget__icon' src='img/37_1.png'/>";  
                   } else if (Math.trunc(today_weather/100) == 3){
                      today_img.innerHTML = "<img class='today-widget__icon' src='img/34.png'/>";  
-                   } else if ((Math.trunctoday_weather/100) == 5){
+                   } else if (Math.trunc(today_weather/100) == 5){
                     if((hour == 21)||(hour <= 3)){
                         today_img.innerHTML = "<img class='today-widget__icon' src='img/12.png'/>";
                        } else
@@ -138,25 +140,25 @@ window.onload = function(){
         
         for (var i = 0; i <= 32; i+=8){ 
             for (var j = 0; j <= 4; j++){
-             a[i] = JSON.parse(xhr.responseText).list[i].weather[0].id;
+             weather_id[i] = JSON.parse(xhr.responseText).list[i].weather[0].id;
 
-              if ((a[i] == 800)&&(j*8 == i)){
+              if ((weather_id[i] == 800)&&(j*8 == i)){
                 img[j].innerHTML = "<img class='daily-row__icon' src='img/33.png'/>";
-               } else if ((a[i] == 801)&&(j*8 == i)){
+               } else if ((weather_id[i] == 801)&&(j*8 == i)){
                 img[j].innerHTML = "<img class='daily-row__icon' src='img/32.png'/>";  
-                } else if ((a[i] == 802)&&(j*8 == i)){
+                } else if ((weather_id[i] == 802)&&(j*8 == i)){
                     img[j].innerHTML = "<img class='daily-row__icon' src='img/37.png'/>";  
-                 } else if (((a[i] == 803)||(a[i] == 804))&&(j*8 == i)){
+                 } else if (((weather_id[i] == 803)||(weather_id[i] == 804))&&(j*8 == i)){
                     img[j].innerHTML = "<img class='daily-row__icon' src='img/37_1.png'/>";  
-                  } else if ((Math.trunc(a[i]/100) == 3)&&(j*8 == i)){
+                  } else if ((Math.trunc(weather_id[i]/100) == 3)&&(j*8 == i)){
                     img[j].innerHTML = "<img class='daily-row__icon' src='img/34.png'/>";  
-                   } else if ((Math.trunc(a[i]/100) == 5)&&(j*8 == i)){
+                   } else if ((Math.trunc(weather_id[i]/100) == 5)&&(j*8 == i)){
                     img[j].innerHTML = "<img class='daily-row__iconn' src='img/25.png'/>";  
-                    } else if ((Math.trunc(a[i]/100) == 2)&&(j*8 == i)){
+                    } else if ((Math.trunc(weather_id[i]/100) == 2)&&(j*8 == i)){
                         img[j].innerHTML = "<img class='daily-row__icon' src='img/27.png'/>";  
-                      } else if ((Math.trunc(a[i]/100) == 6)&&(j*8 == i)){
+                      } else if ((Math.trunc(weather_id[i]/100) == 6)&&(j*8 == i)){
                         img[j].innerHTML = "<img class='daily-row__icon' src='img/24.png'/>";  
-                       } else if ((Math.trunc(a[i]/100) == 7)&&(j*8 == i)){
+                       } else if ((Math.trunc(weather_id[i]/100) == 7)&&(j*8 == i)){
                         img[j].innerHTML = "<img class='daily-row__icon' src='img/21.png'/>";  
                         };
             }                       
@@ -164,16 +166,16 @@ window.onload = function(){
         
         for (var k = 0; k <= 32; k+=8){         
             for (var l = 0; l <= 4; l++){
-              b[k] = JSON.parse(xhr.responseText).list[k].main.temp_max;
-              c[k] = JSON.parse(xhr.responseText).list[k].main.temp_min;
-              d[k] = JSON.parse(xhr.responseText).list[k].main.pressure;
+              temp_max[k] = JSON.parse(xhr.responseText).list[k].main.temp_max;
+              temp_min[k] = JSON.parse(xhr.responseText).list[k].main.temp_min;
+              day_pressure[k] = JSON.parse(xhr.responseText).list[k].main.pressure;
               next_date[0].innerHTML = "Today";
-              e[k] = new Date(JSON.parse(xhr.responseText).list[k].dt_txt);
+              weekaday[k] = new Date(JSON.parse(xhr.responseText).list[k].dt_txt);
                 if (l*8 == k){
-                    degree_high[l].innerHTML = Math.round(b[k]) + "°";
-                    degree_min[l].innerHTML = Math.round(c[k]) + "°";
-                    daily_pressure[l].innerHTML = "<p>Pressure: "+ Math.round(d[k])+ " hPA</p> ";
-                    next_date[l].innerHTML = e[k].toLocaleString('en', {weekday: 'long'});
+                    degree_high[l].innerHTML = Math.round(temp_max[k]) + "°";
+                    degree_min[l].innerHTML = Math.round(temp_min[k]) + "°";
+                    daily_pressure[l].innerHTML = "<p>Pressure: "+ Math.round(day_pressure[k])+ " hPA</p> ";
+                    next_date[l].innerHTML = weekaday[k].toLocaleString('en', {weekday: 'long'});
                 }            
             }
         }
